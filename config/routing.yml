@@ -1,0 +1,11 @@
+cs_attachable_save:
+  url:  /cs/attachable/:table/:object_id
+  params: { module: csAttachable, action: attachmentSave }
+
+cs_attachable_refresh:
+  url:  /cs/attachable/:table/:object_id/refresh
+  params: { module: csAttachable, action: attachmentRefresh }
+
+cs_attachable_delete:
+  url:  /cs/attachable/:table/:object_id/:attachment_id/delete
+  params: { module: csAttachable, action: attachmentDelete }
