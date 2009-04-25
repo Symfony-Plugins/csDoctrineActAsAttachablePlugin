@@ -4,7 +4,7 @@
  <channel>pear.symfony-project.com</channel>
  <summary>Attach custom and preset filetypes to your modules</summary>
  <description>
-	This plugin allows you to associate various uploads with multiple modules.  Include the attachable module to allow for inline uploading in your application.  You can customize by type, add custom validation, etc.  Attach anything from uploads to links to other modules.
+	This plugin allows you to associate various uploads with multiple modules. 
  </description>
  <lead>
   <name>Brent Shaffer</name>
