@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>csDoctrineActAsAttachablePlugin</name>
- <channel>plugins.symfony-project.org</channel>
+ <channel>pear.symfony-project.com</channel>
  <summary>Attach custom and preset filetypes to your modules</summary>
  <description>
 	This plugin allows you to associate various uploads with multiple modules.  Include the attachable module to allow for inline uploading in your application.  You can customize by type, add custom validation, etc.  Attach anything from uploads to links to other modules.
@@ -12,7 +12,7 @@
   <email>bshaffer@centresource.com</email>
   <active>yes</active>
  </lead>
- <date>2009-04-24</date>
+ <date>2009-04-25</date>
  <time>15:54:35</time>
  <version>
   <release>1.0.0</release>
@@ -89,36 +89,37 @@
      <!-- model classes -->
      <file role="data" name="Attachable.php" />
     </dir>
-  </dir>
-  <dir name="modules">
-   <!-- model classes -->
-  	<dir name="csAttachable">
-   		<dir name="actions">
-				<file role="data" name="actions.class.php" />
-				<file role="data" name="components.class.php" />
+	 </dir>
+	  <dir name="modules">
+	   <!-- model classes -->
+	  	<dir name="csAttachable">
+	   		<dir name="actions">
+				  <file role="data" name="actions.class.php" />
+				  <file role="data" name="components.class.php" />
+				</dir>
+	   		<dir name="config">
+				  <file role="data" name="view.yml" />
+				</dir>			
+	   		<dir name="templates">
+				  <file role="data" name="_attachment_edit_item.php" />
+				  <file role="data" name="_attachments.php" />
+				  <file role="data" name="_attachments_group.php" />
+				  <file role="data" name="_attachments_list.php" />
+				  <file role="data" name="iframeSuccess.php" />
+				</dir>			
 			</dir>
-   		<dir name="config">
-				<file role="data" name="view.yml" />
-			</dir>			
-   		<dir name="templates">
-				<file role="data" name="_attachment_edit_item.php" />
-				<file role="data" name="_attachments.php" />
-				<file role="data" name="_attachments_group.php" />
-				<file role="data" name="_attachments_list.php" />
-				<file role="data" name="iframeSuccess.php" />
-			</dir>			
-		</dir>
-  </dir>
-  <dir name="web">
-  	<dir name="css">
-			<file role="data" name="attachments.css" />
-		</dir>
-		<dir name="images">
-			<dir name="attachable">
-				<dir name="icons">
-					<file role="data" name="image.png" />
-					<file role="data" name="pdf.png" />
-					<file role="data" name="word.png" />					
+	  </dir>
+	  <dir name="web">
+	  	<dir name="css">
+				<file role="data" name="attachments.css" />
+			</dir>
+			<dir name="images">
+				<dir name="attachable">
+				  <dir name="icons">
+				  	<file role="data" name="image.png" />
+				  	<file role="data" name="pdf.png" />
+				  	<file role="data" name="word.png" />					
+				  </dir>
 				</dir>
 			</dir>
 		</dir>
