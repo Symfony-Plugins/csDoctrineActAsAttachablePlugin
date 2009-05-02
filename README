@@ -89,6 +89,7 @@ At the end, your ___form.php__ partial should look something like this:
 	</div>
 
 Make sure your upload directory has proper permissions set.  If you need to debug, unhide the iframe to see the errors being thrown.
+Also, be sure to publish your assets {{{ ./symfony plugin:publish-assets }}} to pull in the default attachable styles
 
 ##Other available methods include
 
