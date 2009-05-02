@@ -28,6 +28,12 @@
   <dir name="/">
    <file role="data" name="README" />
    <file role="data" name="LICENSE" />
+	 <dir name="config">	
+		 <dir name="doctrine">
+   		<file role="data" name="attachament.yml" />
+		 </div>
+   	 <file role="data" name="routing.yml" />
+   </div>
 	 <dir name="lib">
 		<dir name="filter">	
 			<dir name="doctrine">
