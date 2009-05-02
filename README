@@ -59,6 +59,37 @@ this component:
 
 Where $object is an item acting as Attachable
 
+###Integrating with the backend
+
+After completing the steps above, you will want to override the ___form.php__ partial in your backend module.  
+Copy all of the code from the same generated module in your project cache.  Then, add the form code above after the </form> tag.
+At the end, your ___form.php__ partial should look something like this:
+
+	[php]
+	<?php include_stylesheets_for_form($form) ?>
+	<?php include_javascripts_for_form($form) ?>
+
+	<div class="sf_admin_form">
+	  <?php echo form_tag_for($form, '@mymodel') ?>
+	    <?php echo $form->renderHiddenFields() ?>
+
+	    <?php if ($form->hasGlobalErrors()): ?>
+	      <?php echo $form->renderGlobalErrors() ?>
+	    <?php endif; ?>
+
+	    <?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?>
+	      <?php include_partial('mymodel/form_fieldset', array('mymodel' => $mymodel, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>
+	    <?php endforeach; ?>
+
+	    <?php include_partial('mymodel/form_actions', array('mymodel' => $mymodel, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+	  </form>
+		<?php if ($form->getObject()->getId()): ?>
+			<?php include_component('csAttachable', 'attachments', array('form' => $form)) ?>
+		<?php endif; ?>
+	</div>
+
+Make sure your upload directory has proper permissions set.  If you need to debug, unhide the iframe to see the errors being thrown.
+
 ##Other available methods include
 
 * $model->getAttachments();  _Returns a doctrine collection object of related attachemnts_
