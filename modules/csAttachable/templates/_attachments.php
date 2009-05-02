@@ -5,7 +5,7 @@
 
 <div id='attachments_display'>
 
-<?php if ($types): ?>
+<?php if (count($types)): ?>
 	<?php foreach ($types as $type): ?>
 
 	<?php $type_form = $type . '_form' ?>
