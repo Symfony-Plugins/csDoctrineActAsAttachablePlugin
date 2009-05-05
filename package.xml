@@ -12,10 +12,10 @@
   <email>bshaffer@centresource.com</email>
   <active>yes</active>
  </lead>
- <date>2009-04-25</date>
+ <date>2009-05-05</date>
  <time>15:54:35</time>
  <version>
-  <release>1.0.0</release>
+  <release>1.0.1</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -30,10 +30,10 @@
    <file role="data" name="LICENSE" />
 	 <dir name="config">	
 		 <dir name="doctrine">
-   		<file role="data" name="attachament.yml" />
-		 </div>
+   		<file role="data" name="attachment.yml" />
+		 </dir>
    	 <file role="data" name="routing.yml" />
-   </div>
+   </dir>
 	 <dir name="lib">
 		<dir name="filter">	
 			<dir name="doctrine">
@@ -142,9 +142,8 @@
    <package>
     <name>symfony</name>
     <channel>pear.symfony-project.com</channel>
-    <min>1.1.0</min>
+    <min>1.2.0</min>
     <max>1.2.0</max>
-    <exclude>1.2.0</exclude>
    </package>
   </required>
  </dependencies>
@@ -163,6 +162,21 @@
    <license uri="http://www.symfony-project.org/license">MIT license</license>
    <notes>
    * Initial creation of plugin
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2009-05-05</date>
+   <license uri="http://www.symfony-project.org/license">MIT license</license>
+   <notes>
+   * Left out YAML schema file, fixes bugs
    </notes>
   </release>
  </changelog>
