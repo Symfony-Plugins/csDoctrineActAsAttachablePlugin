@@ -11,5 +11,5 @@
                  'loading'  => "Element.show('indicator'); Element.hide('btn_submit')",
                  'complete' => "Element.hide('indicator'); Element.show('btn_submit')"
             ), 
-            array('class' => 'delete')
+            array('class' => 'delete', 'confirm' => 'Are you sure?')
         ) ?>
