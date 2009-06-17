@@ -1,33 +1,31 @@
 #sf_admin_container .attachment
 {
-	list-style-type: none;
+  list-style-type: none;
 }
 #sf_admin_container .attachment li
 {
-	list-style-type: none;
-	padding: 5px;
-	margin: 5px;
-	border: 1px solid #BBB;
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #BBB;
 }
 #sf_admin_container .attachment li a.link
-{	
-	background-image: none;
-/*	float:left;*/
-	display:inline;
-	padding-left:0;
-	padding-bottom: 10px;
+{ 
+  background-image: none;
+  display:inline;
+  padding-left:0;
+  padding-bottom: 10px;
 }
 #sf_admin_container .attachment a.delete
 {
-	display: inline;
-	background:transparent url(../../sfDoctrinePlugin/images/delete.png) no-repeat scroll 0 0;
-	width:16px;
-	height:16px;
-/*	float:left;*/
-	margin-left: 30px;
+  display: inline;
+  background:transparent url(../../sfDoctrinePlugin/images/delete.png) no-repeat scroll 0 0;
+  width:16px;
+  height:16px;
+  margin-left: 30px;
 }
 .attachment li a:hover
 {
-	background-color: #DDD;
-	cursor: pointer;
+  background-color: #DDD;
+  cursor: pointer;
 }
