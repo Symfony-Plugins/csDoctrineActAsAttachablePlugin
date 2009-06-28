@@ -14,7 +14,7 @@
 		<?php echo form_tag( '@cs_attachable_save?object_id='.$form->getObject()->getId().'&table='.$table.'&attachment_type='.$type,
                      array('id' => 'addAttachment'.$type,
                            'name' => 'addAttachment'.$type,
-                           'enctype' => 'multipart/form-data' ,
+                           'enctype' => 'multipart/form-data',
                            'target' => 'hiddenIframe'
 		)) ?>
 
