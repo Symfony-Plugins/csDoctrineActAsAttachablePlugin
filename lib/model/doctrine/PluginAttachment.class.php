@@ -20,7 +20,7 @@ abstract class PluginAttachment extends BaseAttachment
 	}
 	public function getUploadPath()
 	{
-		return sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.strtolower($this->getObjectClass()).DIRECTORY_SEPARATOR.$this->getUrl();
+		return 'uploads/'.strtolower($this->getObjectClass()).'/'.$this->getUrl();
 	}
 	public function getAttachmentRoute()
 	{
