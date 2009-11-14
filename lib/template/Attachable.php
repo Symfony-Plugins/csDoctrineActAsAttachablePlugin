@@ -48,11 +48,11 @@ class Doctrine_Template_Attachable extends Doctrine_Template
   }
   public function hasAttachments()
   {
-    return ($this->getAttachments()->count() > 0);
+    return ($this->getAttachmentsQuery()->count() > 0);
   }
   public function hasAttachmentsOfType($type)
   {
-    return ($this->getAttachmentsByType($type)->count() > 0);
+    return ($this->getAttachmentsByTypeQuery($type)->count() > 0);
   }
   public function addAttachment($attachment)
   {
@@ -66,15 +66,20 @@ class Doctrine_Template_Attachable extends Doctrine_Template
     $attachment->save();  
   }
   
+  public function getAttachmentsByTypeQuery($type)
+  {
+    return Doctrine::getTable('Attachment')
+                  ->createQuery()
+                  ->where('object_class = ?', get_class($this->getInvoker()))
+                  ->andWhere('object_id = ?', $this->getInvoker()->getId())
+                  ->andWhere('type = ?', strtolower($type));
+  }
+  
   public function getAttachmentsByType($type)
   {
     if(in_array($type, $this->_options['types']))
     {
-      return Doctrine::getTable('Attachment')
-                  ->createQuery()
-                  ->where('object_class = ?', get_class($this->getInvoker()))
-                  ->andWhere('object_id = ?', $this->getInvoker()->getId())
-                  ->andWhere('type = ?', strtolower($type))
+      return $this->getAttachmentsByTypeQuery($type)
                   ->execute();
     }     
     $table = strtolower($type) == 'other' ? 'Attachment' : sfInflector::classify($type.'_attachment');
