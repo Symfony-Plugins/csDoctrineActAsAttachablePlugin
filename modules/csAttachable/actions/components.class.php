@@ -39,7 +39,7 @@ class csAttachableComponents extends sfActions
 			if($object)
 			{
 				// $object = Doctrine::getTable($this->table)->findOneById($this->objectId);
-				$this->attachments = new BackendAttachmentsForm($object->getAttachments());
+				$this->attachments = new BackendAttachmentsForm(array(), array('attachments' => $object->getAttachments()));
 			}	
 		}
 		if($object)

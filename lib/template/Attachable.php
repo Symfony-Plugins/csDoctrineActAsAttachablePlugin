@@ -2,8 +2,6 @@
 class Doctrine_Template_Attachable extends Doctrine_Template
 {
   protected $_options = array('types' => array());
-  
-
 
   /**
    * Constructor for Attachable Template

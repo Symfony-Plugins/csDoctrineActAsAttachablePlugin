@@ -9,16 +9,16 @@
  */
 abstract class PluginImageAttachmentForm extends AttachmentForm
 {
-	public function setUp()
-	{
-		$this->getObject()->setType('image');
-		$this->prepare(array('mimetypes' => array(
+  public function setUp()
+  {
+    $this->getObject()->setType('image');
+    $this->prepare(array('mimetypes' => array(
         'image/jpeg',
         'image/pjpeg',
         'image/png',
         'image/x-png',
         'image/gif',
     )));
-		parent::setUp();
-	}
+    parent::setUp();
+  }
 }

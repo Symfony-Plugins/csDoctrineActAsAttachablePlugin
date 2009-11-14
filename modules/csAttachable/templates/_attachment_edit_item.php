@@ -2,7 +2,7 @@
 
 <?php echo link_to($title, image_path($attachment->getAttachmentRoute()), 'class=link target=_blank') ?>
 
-<?php echo link_to_remote('delete', 
+<?php echo jq_link_to_remote('delete', 
             array(
               'url' => '@cs_attachable_delete?attachment_id='.$attachment->getId().
                                      '&object_id='.$object->getId().

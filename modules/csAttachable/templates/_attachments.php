@@ -1,4 +1,4 @@
-<?php use_helper('Javascript') ?>
+<?php use_helper('jQuery') ?>
 <?php use_helper('Form') ?>
 <?php $sf_response->addJavascript('/sfProtoculousPlugin/js/prototype.js'); ?>
 <?php $sf_response->addStylesheet('/csDoctrineActAsAttachablePlugin/css/attachments.css'); ?>
@@ -21,7 +21,7 @@
 <?php else: ?>
 	<?php include_component('csAttachable','attachments_group', 
 			array('table' => $table, 
-						'attachments' => $attachments, 
+             'attachments' => $attachments, 
 						'attachment' => $attachment,
 						'type'		=> '', 
 						'form' => $form)) ?>
@@ -30,7 +30,7 @@
 <script>
 function attachment_refresh_form()
 {
-	new Ajax.Updater('attachments_display', '<?php echo url_for("@cs_attachable_refresh?table=".$table."&object_id=".$form->getObject()->getId()); ?>', {asynchronous:true, evalScripts:false});
+  jQuery('#attachments_display').load('<?php echo url_for("@cs_attachable_refresh?table=".$table."&object_id=".$form->getObject()->getId()); ?>')
 }
 </script>
 </div>

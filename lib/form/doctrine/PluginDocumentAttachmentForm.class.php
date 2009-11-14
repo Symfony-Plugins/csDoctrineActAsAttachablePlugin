@@ -9,18 +9,18 @@
  */
 abstract class PluginDocumentAttachmentForm extends AttachmentForm
 {
-	public function setUp()
-	{
-		$this->getObject()->setType('document');
-		$this->prepare(array(
-					// 'uploadpath' => 'uploads/document/'. strtolower($this->getObjectClass())
-						'mimetypes' => array(	'text/plain', 
-																	'application/msword',
-																	'application/pdf',																								
-																	'application/rtf',
-																	'text/richtext',
-																	),
-					));
-		parent::setUp();
-	}
+  public function setUp()
+  {
+    $this->getObject()->setType('document');
+    $this->prepare(array(
+          // 'uploadpath' => 'uploads/document/'. strtolower($this->getObjectClass())
+            'mimetypes' => array( 'text/plain', 
+                                  'application/msword',
+                                  'application/pdf',                                                
+                                  'application/rtf',
+                                  'text/richtext',
+                                  ),
+          ));
+    parent::setUp();
+  }
 }

@@ -9,21 +9,21 @@ abstract class PluginAttachment extends BaseAttachment
   {
       return $this->name;
   }
-	public function getObject()
-	{
-		return Doctrine::getTable($this->getObjectClass())->findOneById($this->getObjectId());
-	}
-	public function getDefaultFilepath()
-	{
-		sfLoader::loadHelpers('Url');
-		return public_path($this->getUploadPath());
-	}
-	public function getUploadPath()
-	{
-		return 'uploads/'.strtolower($this->getObjectClass()).'/'.$this->getUrl();
-	}
-	public function getAttachmentRoute()
-	{
-		return $this->getDefaultFilepath();
-	}
+  public function getObject()
+  {
+    return Doctrine::getTable($this->getObjectClass())->findOneById($this->getObjectId());
+  }
+  public function getDefaultFilepath()
+  {
+    sfLoader::loadHelpers('Url');
+    return public_path($this->getUploadPath());
+  }
+  public function getUploadPath()
+  {
+    return 'uploads/'.strtolower($this->getObjectClass()).'/'.$this->getUrl();
+  }
+  public function getAttachmentRoute()
+  {
+    return $this->getDefaultFilepath();
+  }
 }

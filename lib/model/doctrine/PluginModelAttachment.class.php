@@ -5,8 +5,8 @@
  */
 abstract class PluginModelAttachment extends BaseModelAttachment
 {
-	public function getAttachmentRoute()
-	{
-		return $this->getUrl();
-	}
+  public function getAttachmentRoute()
+  {
+    return $this->getUrl();
+  }
 }

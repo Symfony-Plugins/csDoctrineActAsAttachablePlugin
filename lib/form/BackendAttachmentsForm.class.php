@@ -9,11 +9,11 @@
  */
 class BackendAttachmentsForm extends sfForm
 {
-  public function __construct($attachments)
+  public function configure()
   {
-		foreach ($attachments as $attachment) {
-			$attachmentsForm = new AttachmentForm($attachment);
-			$this->embedForm($attachment->id, $attachmentsForm);
-		}
+    foreach ($this->getOption('attachments') as $attachment) {
+      $attachmentsForm = new AttachmentForm($attachment);
+      $this->embedForm($attachment->id, $attachmentsForm);
+    }
   }
 }

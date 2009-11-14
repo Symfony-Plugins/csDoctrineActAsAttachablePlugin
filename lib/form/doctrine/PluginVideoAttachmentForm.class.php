@@ -9,9 +9,9 @@
  */
 abstract class PluginVideoAttachmentForm extends AttachmentForm
 {
-	public function setUp()
-	{
-		$this->getObject()->setType('video');
-		parent::setUp();
-	}
+  public function setUp()
+  {
+    $this->getObject()->setType('video');
+    parent::setUp();
+  }
 }
