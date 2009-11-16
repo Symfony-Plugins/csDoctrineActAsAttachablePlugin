@@ -4,7 +4,7 @@
     <ul class="attachment">
     <?php foreach ($attachments->getEmbeddedForms() as $embedded): ?>
       <li>
-        <?php include_partial('csAttachable/attachment_edit_item', array('attachment' => $embedded->getObject(), 'object' => $form->getObject(), 'table' => $table)) ?>
+        <?php include_partial('csAttachable/attachment_edit_item', array('attachment' => $embedded->getObject(), 'object' => $form->getObject(), 'table' => $table, 'javascriptHelper' => $javascriptHelper)) ?>
       </li>
     <?php endforeach ?>
     </ul>

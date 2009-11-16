@@ -53,15 +53,13 @@ class csAttachableActions extends sfActions
       } 
     }
   }
-  // public function saveAttachmentType($type)
-  // {
-  //  
-  // }
+
   public function executeAttachmentRefresh(sfWebRequest $request)
   {
     $this->refreshObject();
-    return $this->renderComponent('csAttachable', 'attachments', array('object' => $this->object, 'table' => $this->table));    
+    return $this->renderComponent('csAttachable', 'attachments', array('object' => $this->object, 'table' => $this->table, 'javascriptHelper' => $this->javascriptHelper));    
   }
+  
   public function executeAttachmentDelete(sfWebRequest $request)
   {
     $attachment = Doctrine::getTable('Attachment')->findOneById($this->getRequestParameter('attachment_id'));
@@ -72,8 +70,9 @@ class csAttachableActions extends sfActions
       unlink($dir);
     }
     $this->refreshObject();
-    return $this->renderComponent('csAttachable', 'attachments', array('object' => $this->object, 'table' => $this->table));
+    return $this->renderComponent('csAttachable', 'attachments', array('object' => $this->object, 'table' => $this->table, 'javascriptHelper' => $request->getParameter('javascriptHelper', 'Javascript')));
   }
+  
   public function bindExternalUrl($request)
   {
     $this->object = $this->getAttachableObject();
@@ -84,6 +83,7 @@ class csAttachableActions extends sfActions
 
     $this->form->bind($request->getParameter('attachment'));
   }
+  
   public function bindAttachment($values, $files)
   {
     $this->object = $this->getAttachableObject();
@@ -95,22 +95,26 @@ class csAttachableActions extends sfActions
     $this->form->bind($values, $files);
     return $this->form;
   }
+  
   public function getAttachableObject()
   {
     return Doctrine::getTable($this->table)->findOneById($this->getRequestParameter('object_id'));
   }
+  
   public function getNewAttachmentForm($attachment, $object)
   {
     $type = $this->getRequestParameter('attachment_type');
     $form = strtolower($type) == 'other' ? 'AttachmentForm' : $type.'AttachmentForm';
     return new $form($attachment, $object);
   }
+  
   public function getNewAttachmentModel()
   {
     $type = $this->getRequestParameter('attachment_type');
     $model = strtolower($type) == 'other' ? 'Attachment' : $type.'Attachment';
     return new $model();
   }
+  
   public function getFileName($file)
   {
     if(isset($file['url']['name']))
@@ -122,6 +126,7 @@ class csAttachableActions extends sfActions
       return $file['name']['url'];
     }
   }
+  
   public function isEmptyFile($file)
   {
     if((isset($file['url']['name']) && $file['url']['name']) || (isset($file['name']['url']) && $file['name']['url']))
@@ -130,26 +135,22 @@ class csAttachableActions extends sfActions
     }
     return true;
   }
+  
   public function refreshObject()
   {
     $this->object = Doctrine::getTable($this->table)->findOneById($this->getRequestParameter('object_id'));
     $newForm = $this->table.'Form';
     $this->form = new $newForm($this->object);
+    $this->javascriptHelper = $this->getRequest()->getParameter('javascriptHelper', 'Javascript');
     unset($this->form['description']);
   }
-  // public function bindObjectAttachment($attachment)
-  // {
-  //  $newClass = $this->table . 'Attachment';
-  //  $objectAttachment = new $newClass();
-  //  $objectAttachment[strtolower($this->table).'_id'] = $this->getRequestParameter('object_id');
-  //  $objectAttachment['attachment_id'] = $attachment->getId();
-  //  $objectAttachment->save();
-  // }
+  
   public function getEmptyAttachmentArray()
   {
     return array();
     return array('attachment' => false);
   }
+  
   public function isUpload($files)
   {
     if($files)
@@ -158,16 +159,4 @@ class csAttachableActions extends sfActions
     }
     return false;
   }
-
-
-  // public function executeRemoveImage(sfWebRequest $request)
-  // {
-  //  $table = $request->getParameter('table');
-  //  $obj = Doctrine::getTable($table)->findOneById($request->getParameter('id'));
-  //  unlink(sfConfig::get('sf_attachment_dir').'/images/'.strtolower($table).'/'.$obj['image']);
-  //  $obj['image'] = '';
-  //  $obj->save();
-  //  $form = $table.'Form';
-  //  return $this->renderPartial('global/image', array('form' => new $form($obj)));
-  // }
 }

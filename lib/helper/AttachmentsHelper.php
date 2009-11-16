@@ -37,3 +37,13 @@ function attachments_list($attachments)
 
   return false;
 }
+
+function jq_attachments_admin($form)
+{
+  include_component('csAttachable', 'attachments', array('form' => $form, 'javascriptHelper' => 'jQuery'));
+}
+
+function attachments_admin($form)
+{
+  include_component('csAttachable', 'attachments', array('form' => $form, 'javascriptHelper' => 'Javascript'));  
+}
